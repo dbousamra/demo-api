@@ -1,10 +1,15 @@
 FROM haskell:8.0.2
 MAINTAINER Dominic Bou-Samra <dom@imageintelligence.com>
 
-COPY . /app/skeleton-haskell
-
 WORKDIR /app/skeleton-haskell
 
-RUN stack build
+COPY skeleton-haskell.cabal /app/skeleton-haskell
+COPY stack.yaml /app/skeleton-haskell
+
+RUN stack install --only-dependencies
+
+COPY . /app/skeleton/haskell
+
+RUN stack install
 
 CMD ["stack","exec","skeleton-haskell"]
