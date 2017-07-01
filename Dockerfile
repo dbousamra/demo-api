@@ -11,7 +11,7 @@ COPY stack.yaml /app/skeleton-haskell
 
 RUN stack install --only-dependencies
 
-COPY . /app/skeleton/haskell
+COPY . /app/skeleton-haskell
 
 RUN stack install
 
