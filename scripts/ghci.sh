@@ -2,4 +2,4 @@
 
 set -eu
 
-docker-compose run --rm -it skeleton-haskell stack ghci
+docker-compose run --rm skeleton-haskell stack ghci
