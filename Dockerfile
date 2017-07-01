@@ -3,6 +3,9 @@ MAINTAINER Dominic Bou-Samra <dom@imageintelligence.com>
 
 WORKDIR /app/skeleton-haskell
 
+# optionally cache the package index too
+RUN stack update
+
 COPY skeleton-haskell.cabal /app/skeleton-haskell
 COPY stack.yaml /app/skeleton-haskell
 
