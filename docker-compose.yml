@@ -1,8 +1,11 @@
 version: "2"
+
 services:
   skeleton-haskell:
     container_name: skeleton-haskell
+    working_dir: /app/skeleton-haskell
     build: .
     command: ["stack", "build", "--exec", "skeleton-haskell"]
     volumes:
       - ./:/app/skeleton-haskell
+    tty: true

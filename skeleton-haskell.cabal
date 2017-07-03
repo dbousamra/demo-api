@@ -4,7 +4,6 @@ version:             0.1.0.0
 -- description:
 homepage:            https://github.com/imageintelligence/skeleton-haskell#readme
 license:             MIT
-license-file:        LICENSE
 author:              Dominic Bou-Samra
 maintainer:          dom@imageintelligence.com
 copyright:           2017 Image Intelligence
