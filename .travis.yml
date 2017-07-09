@@ -5,7 +5,7 @@ services:
 env:
   TRAVIS_BRANCH_CLEAN=$(sed 's/\//-/g' <<< $TRAVIS_BRANCH)
   DOCKER_TAG="$TRAVIS_COMMIT.$TRAVIS_BRANCH_CLEAN"
-  APP_NAME=skeleton-haskell
+  APP_NAME=demo-api
 script: |
   set -e
 

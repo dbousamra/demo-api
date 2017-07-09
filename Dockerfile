@@ -1,18 +1,18 @@
 FROM haskell:8.0.2
 MAINTAINER Dominic Bou-Samra <dom@imageintelligence.com>
 
-WORKDIR /app/skeleton-haskell
+WORKDIR /app/demo-api
 
 # optionally cache the package index too
 RUN stack update
 
-COPY skeleton-haskell.cabal /app/skeleton-haskell
-COPY stack.yaml /app/skeleton-haskell
+COPY demo-api.cabal /app/demo-api
+COPY stack.yaml /app/demo-api
 
 RUN stack install --only-dependencies
 
-COPY . /app/skeleton-haskell
+COPY . /app/demo-api
 
 RUN stack install
 
-CMD ["stack","exec","skeleton-haskell"]
+CMD ["stack","exec","demo-api"]

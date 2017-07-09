@@ -1,11 +1,11 @@
 version: "2"
 
 services:
-  skeleton-haskell:
-    container_name: skeleton-haskell
-    working_dir: /app/skeleton-haskell
+  demo-api:
+    container_name: demo-api
+    working_dir: /app/demo-api
     build: .
-    command: ["stack", "build", "--exec", "skeleton-haskell"]
+    command: ["stack", "build", "--exec", "demo-api"]
     volumes:
-      - ./:/app/skeleton-haskell
+      - ./:/app/demo-api
     tty: true
