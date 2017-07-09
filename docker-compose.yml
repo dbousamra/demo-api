@@ -1,11 +1,27 @@
 version: "2"
 
 services:
+
   demo-api:
     container_name: demo-api
-    working_dir: /app/demo-api
-    build: .
+    working_dir: /app/demo-api/server
+    build: server
     command: ["stack", "build", "--exec", "demo-api"]
     volumes:
-      - ./:/app/demo-api
+      - ./server:/app/server
     tty: true
+    ports:
+      - "8080:8080"
+
+  demo-client:
+    container_name: demo-client
+    working_dir: /app/client
+    build: client
+    command: ["node", "src/server.js"]
+    volumes:
+      - ./client:/app/client
+    tty: true
+    ports:
+      - "3000:3000"
+    depends_on:
+      - demo-api

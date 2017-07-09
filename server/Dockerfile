@@ -1,17 +1,17 @@
 FROM haskell:8.0.2
 MAINTAINER Dominic Bou-Samra <dom@imageintelligence.com>
 
-WORKDIR /app/demo-api
+WORKDIR /app/server
 
 # optionally cache the package index too
 RUN stack update
 
-COPY demo-api.cabal /app/demo-api
-COPY stack.yaml /app/demo-api
+COPY demo-api.cabal /app/server
+COPY stack.yaml /app/server
 
 RUN stack install --only-dependencies
 
-COPY . /app/demo-api
+COPY . /app/server
 
 RUN stack install
 
