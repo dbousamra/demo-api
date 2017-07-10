@@ -2,6 +2,5 @@
 
 module Queries where
 
-import           Data.List                  (uncons)
-import           Database.PostgreSQL.Simple
-import           Types
+import Database.PostgreSQL.Simple
+import Types
