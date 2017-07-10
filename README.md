@@ -45,6 +45,8 @@ StackOverflow for CS:GO demos!
 
 4. See if the app is running:
 
-     ```bash
-     curl http://localhost:8080/health
-      ```
+     `curl http://localhost:8080/health`
+
+     or
+
+     `http get http://localhost:8080/health`
