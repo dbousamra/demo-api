@@ -3,6 +3,8 @@ MAINTAINER Dominic Bou-Samra <dom@imageintelligence.com>
 
 WORKDIR /app/server
 
+RUN apt-get update && apt-get install -y libpq-dev
+
 # optionally cache the package index too
 RUN stack update
 

@@ -5,13 +5,14 @@ module Routes (
 ) where
 
 import qualified Data.Text as T
-import           Data.Aeson (Value, (.=), object)
-import           Web.Scotty
-import           Network.Wai (Middleware)
-import           Network.Wai.Middleware.RequestLogger (logStdoutDev)
-import           Network.HTTP.Types.Status
-import           Types
-import           Json
+import Data.Aeson (Value, (.=), object)
+import Database.PostgreSQL.Simple
+import Web.Scotty
+import Network.Wai (Middleware)
+import Network.Wai.Middleware.RequestLogger (logStdoutDev)
+import Network.HTTP.Types.Status
+import Types
+import Json
 
 loggingM :: Middleware
 loggingM = logStdoutDev
@@ -24,14 +25,21 @@ defaultH e = do
 fallback :: ScottyM ()
 fallback = notFound $ status notFound404
 
+health :: ActionM ()
+health = status ok200
+
 createDemoRequest :: ActionM ()
 createDemoRequest = do
   dr <- jsonData :: ActionM DemoRequest
   json dr
 
-routes :: ScottyM ()
-routes = do
+routes :: Connection -> ScottyM ()
+routes conn = do
+  -- Setup
   defaultHandler defaultH
   middleware loggingM
+  -- Routes
+  get  "/health" $ health
   post "/demorequest" $ createDemoRequest
+  -- What to do if all the routes above fail
   fallback

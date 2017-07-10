@@ -1,0 +1,3 @@
+CREATE TABLE demos (
+  id UUID UNIQUE PRIMARY KEY
+);

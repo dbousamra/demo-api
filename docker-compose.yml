@@ -4,14 +4,18 @@ services:
 
   demo-api:
     container_name: demo-api
-    working_dir: /app/demo-api/server
+    working_dir: /app/server
     build: server
     command: ["stack", "build", "--exec", "demo-api"]
     volumes:
       - ./server:/app/server
+    env_file:
+      - .env.server
     tty: true
     ports:
       - "8080:8080"
+    depends_on:
+      - demo-api-db
 
   demo-client:
     container_name: demo-client
@@ -25,3 +29,9 @@ services:
       - "3000:3000"
     depends_on:
       - demo-api
+
+  demo-api-db:
+    container_name: demo-api-db
+    image: "postgres:9.6.2"
+    ports:
+      - "5432:5432"

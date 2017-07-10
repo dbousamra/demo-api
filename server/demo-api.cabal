@@ -9,7 +9,6 @@ maintainer:          dominic.bou.samra@gmail.com
 category:            Web
 build-type:          Simple
 cabal-version:       >=1.10
-extra-source-files:  README.md
 
 executable demo-api
   hs-source-dirs:      src
@@ -23,6 +22,7 @@ executable demo-api
                      , text
                      , bytestring
                      , aeson
+                     , postgresql-simple
   other-modules:       Types
                      , Routes
                      , Json

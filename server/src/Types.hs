@@ -2,7 +2,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 
 module Types where
-import           GHC.Generics
+import GHC.Generics
 import qualified Data.Text as T
 import qualified Data.Text.Lazy as L
 
@@ -28,6 +28,7 @@ data CSGORank
   | GE
   deriving (Show, Eq, Generic)
 
+-- API requests
 data DemoRequest = DemoRequest {
   dPlayerName :: T.Text,
   dDemoUrl :: T.Text,
