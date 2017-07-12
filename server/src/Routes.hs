@@ -39,7 +39,7 @@ routes conn = do
   defaultHandler defaultH
   middleware loggingM
   -- Routes
-  get  "/health" $ health
-  post "/demorequest" $ createDemoRequest
+  get  "/health" health
+  post "/demorequest" createDemoRequest
   -- What to do if all the routes above fail
   fallback
