@@ -43,10 +43,10 @@ StackOverflow for CS:GO demos!
     (4 rows)
     ```
 
-4. See if the app is running:
-
-     `curl http://localhost:8080/health`
-
-     or
+4. See if the server is running:
 
      `http get http://localhost:8080/health`
+
+5. See if the client is running:
+
+     `http get http://localhost:8081/`
