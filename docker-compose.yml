@@ -21,12 +21,12 @@ services:
     container_name: demo-client
     working_dir: /app/client
     build: client
-    command: ["node", "src/server.js"]
+    command: ["npm", "run", "webpack-dev-server"]
     volumes:
       - ./client:/app/client
     tty: true
     ports:
-      - "3000:3000"
+      - "8081:8081"
     depends_on:
       - demo-api
 
