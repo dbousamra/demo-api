@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Greeting from "./greeting";
+import Root from "./components/Root";
 
 ReactDOM.render(
-  <Greeting name="World"/>,
+  <Root name="World"/>,
   document.body
 );

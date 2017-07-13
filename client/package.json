@@ -4,9 +4,14 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
     "express": "^4.15.3",
+    "html-webpack-include-assets-plugin": "0.0.6",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-addons-css-transition-group": "^15.6.0",
+    "react-addons-transition-group": "^15.6.0",
+    "react-dom": "^15.6.1",
+    "reactstrap": "^4.8.0"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
