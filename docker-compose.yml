@@ -9,6 +9,7 @@ services:
     command: ["stack", "build", "--exec", "demo-api"]
     volumes:
       - ./server:/app/server
+      - ./client:/app/client
     env_file:
       - .env.server
     tty: true

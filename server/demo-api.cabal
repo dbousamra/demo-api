@@ -18,6 +18,7 @@ executable demo-api
                      , scotty
                      , wai
                      , wai-extra
+                     , wai-middleware-static
                      , http-types
                      , text
                      , bytestring

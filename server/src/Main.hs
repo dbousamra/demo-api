@@ -10,8 +10,8 @@ import Routes (routes)
 
 main :: IO ()
 main = do
-  conn <- getConn
-  scotty 8080 $ routes conn
+  -- conn <- getConn
+  scotty 8080 $ routes undefined
 
 getConn :: IO Connection
 getConn = do
