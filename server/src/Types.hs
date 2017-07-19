@@ -33,7 +33,7 @@ data DemoRequest = DemoRequest {
   dPlayerName :: T.Text,
   dDemoUrl :: T.Text,
   dComments :: T.Text,
-  dRank :: CSGORank,
+  dRank :: Maybe CSGORank,
   dRoundsOfInterest :: [Int]
 } deriving (Show, Eq)
 

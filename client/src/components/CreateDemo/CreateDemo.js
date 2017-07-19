@@ -12,7 +12,7 @@ class CreateDemo extends React.Component {
       playerName: "",
       demoUrl: "",
       roundsOfInterest: [],
-      rank: "",
+      rank: null,
       comments: ""
     }
     this.handleInput = this.handleInput.bind(this)
@@ -27,7 +27,8 @@ class CreateDemo extends React.Component {
   }
 
   handleSubmitDemoRequest() {
-    const request = {
+    const request = 
+    { 
       playerName: this.state.playerName,
       demoUrl: this.state.demoUrl,
       roundsOfInterest: this.state.roundsOfInterest,

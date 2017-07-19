@@ -12,7 +12,7 @@ class Root extends React.Component {
 
   handleSubmitDemoRequest(demoRequest) {
     axios.post('/demorequest', demoRequest).then((res) => {
-      console.log("test worked")
+      console.log(demoRequest)
     }).catch((error) => {
       console.log(error)
     })
