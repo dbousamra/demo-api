@@ -3,10 +3,28 @@ import React from "react";
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 class CreateDemo extends React.Component {
+
   constructor(props) {
     super(props);
+    this.state = {
+      playerName: "",
+      demoUrl: "",
+      roundsOfInterest: [],
+      rank: "",
+      comments: ""
+    }
+    this.handleSubmitDemoRequest = this.handleSubmitDemoRequest.bind(this)
+  }
 
-    // this.handleSignup = this.handleSignup.bind(this);
+  handleSubmitDemoRequest() {
+    const request = {
+      playerName: this.state.playerName,
+      demoUrl: this.state.demoUrl,
+      roundsOfInterest: this.state.roundsOfInterest,
+      rank: this.state.rank,
+      comments: this.state.comments
+    }
+    this.props.handleSubmitDemoRequest(request)
   }
 
   render() {
@@ -73,13 +91,7 @@ class CreateDemo extends React.Component {
             </Label>
           </FormGroup>
         </FormGroup>
-        <FormGroup check>
-          <Label check>
-            <Input type="checkbox" />{' '}
-            Check me out
-          </Label>
-        </FormGroup>
-        <Button>Submit</Button>
+        <Button onClick={this.handleSubmitDemoRequest}>Submit</Button>
       </Form>
     );
   }

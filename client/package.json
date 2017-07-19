@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "axios": "^0.16.2",
     "bootstrap": "^4.0.0-alpha.6",
     "express": "^4.15.3",
     "html-webpack-include-assets-plugin": "0.0.6",
@@ -25,8 +26,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack",
-    "webpack-dev-server": "webpack-dev-server --port=8081 --host 0.0.0.0 --no-info --colors --compress"
+    "build": "webpack",
+    "webpack-dev-server": "webpack-dev-server --port=8081 --host 0.0.0.0 --colors --compress"
   },
   "author": "",
   "license": "ISC"
