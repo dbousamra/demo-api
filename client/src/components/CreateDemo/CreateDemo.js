@@ -41,47 +41,49 @@ class CreateDemo extends React.Component {
 
     const roundsToRadio = lodash.map(this.state.rounds, (round) => {
       return (
-        <FormGroup check key={round}>
+        <div key={round} className="col-1">
           <Label check>
-            <Input type="radio" name="round" />{' '}
+            <Input type="radio" name="round"/>{' '}
             {round}
           </Label>
-        </FormGroup>
+        </div>
       )
     })
 
     const roundsOfInterest =
-      <FormGroup tag="fieldset">
+      <FormGroup>
         <legend>Rounds of interest</legend>
         {roundsToRadio}
       </FormGroup>
 
 
     return (
-      <Form>
-        <FormGroup>
-          <Label for="exampleEmail">Alias</Label>
-          <Input type="text" name="playerName" id="playerName" placeholder="What's your alias?" onChange={(e) => this.handleInput(e, "playerName")}/>
-        </FormGroup>
-        <FormGroup>
-          <Label for="examplePassword">Demo Url</Label>
-          <Input type="text" name="demoUrl" id="demoUrl" placeholder="Demo url" onChange={(e) => this.handleInput(e, "demoUrl")}/>
-        </FormGroup>
-        {roundsOfInterest}
-        <FormGroup>
-          <Label for="comments">Comments</Label>
-          <Input type="textarea" name="text" id="comments" onChange={(e) => this.handleInput(e, "comments")}/>
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleFile">File</Label>
-          <Input type="file" name="file" id="exampleFile" />
-          <FormText color="muted">
-            This is some placeholder block-level help text for the above input.
-            It's a bit lighter and easily wraps to a new line.
-          </FormText>
-        </FormGroup>
-        <Button onClick={this.handleSubmitDemoRequest}>Submit</Button>
-      </Form>
+      <div className="container-fluid">
+        <Form>
+          <FormGroup>
+            <Label for="exampleEmail">Alias</Label>
+            <Input type="text" name="playerName" id="playerName" placeholder="What's your alias?" onChange={(e) => this.handleInput(e, "playerName")}/>
+          </FormGroup>
+          <FormGroup>
+            <Label for="examplePassword">Demo Url</Label>
+            <Input type="text" name="demoUrl" id="demoUrl" placeholder="Demo url" onChange={(e) => this.handleInput(e, "demoUrl")}/>
+          </FormGroup>
+          {roundsOfInterest}
+          <FormGroup>
+            <Label for="comments">Comments</Label>
+            <Input type="textarea" name="text" id="comments" onChange={(e) => this.handleInput(e, "comments")}/>
+          </FormGroup>
+          <FormGroup>
+            <Label for="exampleFile">File</Label>
+            <Input type="file" name="file" id="exampleFile" />
+            <FormText color="muted">
+              This is some placeholder block-level help text for the above input.
+              It's a bit lighter and easily wraps to a new line.
+            </FormText>
+          </FormGroup>
+          <Button onClick={this.handleSubmitDemoRequest}>Submit</Button>
+        </Form>
+      </div>
     );
   }
 }
