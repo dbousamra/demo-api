@@ -21,18 +21,17 @@ services:
   demo-client:
     container_name: demo-client
     working_dir: /app/client
-    build: client
-    command: ["npm", "run", "webpack-dev-server"]
+    build: ./client
+    command: ["npm", "run", "build"]
     volumes:
       - ./client:/app/client
-    tty: true
-    ports:
-      - "8081:8081"
-    depends_on:
-      - demo-api
+      - /app/client/node_modules
 
   demo-api-db:
     container_name: demo-api-db
     image: "postgres:9.6.2"
     ports:
       - "5432:5432"
+
+volumes:
+  client:

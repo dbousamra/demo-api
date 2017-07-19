@@ -47,6 +47,17 @@ StackOverflow for CS:GO demos!
 
      `http get http://localhost:8080/health`
 
-5. See if the client is running:
 
-     `http get http://localhost:8081/`
+## Running
+
+Just run `docker-compose up`. This will load up the `demo-db` container and the `demo-api` container, and also invoke `npm run build` inside the `demo-client` container (which promptly terminates.
+
+## Scripts
+
+#### build_client.sh
+
+In order to rebuild the javascript, we invoke `webpack` via npm inside the `demo-client` docker-compose service.
+
+#### ghci.sh.sh
+
+This is used to load up GHCI.

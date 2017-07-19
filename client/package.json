@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "assets-webpack-plugin": "^3.5.1",
     "axios": "^0.16.2",
     "bootstrap": "^4.0.0-alpha.6",
     "express": "^4.15.3",

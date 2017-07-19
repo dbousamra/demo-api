@@ -26,7 +26,6 @@ class Root extends React.Component {
             <CreateDemo handleSubmitDemoRequest={this.handleSubmitDemoRequest}/>
           </Col>
         </Row>
-        
       </div>
     );
   }
