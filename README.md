@@ -52,6 +52,11 @@ StackOverflow for CS:GO demos!
 
 Just run `docker-compose up`. This will load up the `demo-db` container and the `demo-api` container, and also invoke `npm run build` inside the `demo-client` container (which promptly terminates.
 
+## Rebuilding on changes
+
+dc down
+dc up --build
+
 ## Scripts
 
 #### build_client.sh

@@ -1,0 +1,1 @@
+http post http://localhost:8080/demorequest < ../data/create_demo_request.json

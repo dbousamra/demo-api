@@ -39,22 +39,22 @@ class CreateDemo extends React.Component {
 
   render() {
 
-    const roundsToRadio = lodash.map(this.state.rounds, (round) => {
-      return (
-        <div key={round} className="col-1">
-          <Label check>
-            <Input type="radio" name="round"/>{' '}
-            {round}
-          </Label>
-        </div>
-      )
-    })
+    // const roundsToRadio = lodash.map(this.state.rounds, (round) => {
+    //   return (
+    //     <div key={round} className="col-1">
+    //       <Label check>
+    //         <Input type="radio" name="round"/>{' '}
+    //         {round}
+    //       </Label>
+    //     </div>
+    //   )
+    // })
 
-    const roundsOfInterest =
-      <FormGroup>
-        <legend>Rounds of interest</legend>
-        {roundsToRadio}
-      </FormGroup>
+    // const roundsOfInterest =
+    //   <FormGroup>
+    //     <legend>Rounds of interest</legend>
+    //     {roundsToRadio}
+    //   </FormGroup>
 
 
     return (
@@ -68,7 +68,10 @@ class CreateDemo extends React.Component {
             <Label for="examplePassword">Demo Url</Label>
             <Input type="text" name="demoUrl" id="demoUrl" placeholder="Demo url" onChange={(e) => this.handleInput(e, "demoUrl")}/>
           </FormGroup>
-          {roundsOfInterest}
+          <FormGroup>
+            <Label for="examplePassword">Rounds of interest</Label>
+            <Input type="text" name="roundsOfInterest" id="roundsOfInterest" placeholder="Rounds of interest?" onChange={(e) => this.handleInput(e, "roundsOfInterest")}/>
+          </FormGroup>
           <FormGroup>
             <Label for="comments">Comments</Label>
             <Input type="textarea" name="text" id="comments" onChange={(e) => this.handleInput(e, "comments")}/>
