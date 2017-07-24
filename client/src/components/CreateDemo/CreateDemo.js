@@ -74,6 +74,10 @@ class CreateDemo extends React.Component {
             <Input type="text" name="roundsOfInterest" id="roundsOfInterest" placeholder="Rounds of interest?" onChange={(e) => this.handleInput(e, "roundsOfInterest")}/>
           </FormGroup>
           <FormGroup>
+            <Label for="examplePassword">Rank</Label>
+            <Input type="text" name="rank" id="rank" placeholder="Rank?" onChange={(e) => this.handleInput(e, "rank")}/>
+          </FormGroup>
+          <FormGroup>
             <Label for="comments">Comments</Label>
             <Input type="textarea" name="text" id="comments" onChange={(e) => this.handleInput(e, "comments")}/>
           </FormGroup>
