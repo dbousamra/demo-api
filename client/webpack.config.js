@@ -37,5 +37,13 @@ module.exports = {
       ],
       append: true,
     })
-  ]
+  ],
+  devServer: {
+    proxy: {
+      '/': {
+        target: 'https://locahost:8080/',
+        secure: false
+      }
+    }
+  }
 };

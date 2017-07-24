@@ -9,26 +9,32 @@ class CreateDemo extends React.Component {
     super(props);
     this.state = {
       rounds: [1,2,3,4,5,6,7],
-      playerName: "",
-      demoUrl: "",
+      playerName: null,
+      demoUrl: null,
       roundsOfInterest: [],
       rank: null,
-      comments: ""
+      comments: null
     }
     this.handleInput = this.handleInput.bind(this)
     this.handleSubmitDemoRequest = this.handleSubmitDemoRequest.bind(this)
+    this.handleRoundsOfInterest = this.handleRoundsOfInterest.bind(this)
   }
 
   handleInput(e, state) {
     this.setState({
       [state]: e.target.value
     })
-    console.log(this.state)
+  }
+
+  handleRoundsOfInterest(e) {
+    const selected = lodash.filter(e.target.options, (option) => {
+      return option.selected;
+    });
+    this.setState({"roundsOfInterest": lodash.map(selected, (o) => parseInt(o.value))})
   }
 
   handleSubmitDemoRequest() {
-    const request = 
-    { 
+    const request = { 
       playerName: this.state.playerName,
       demoUrl: this.state.demoUrl,
       roundsOfInterest: this.state.roundsOfInterest,
@@ -40,39 +46,29 @@ class CreateDemo extends React.Component {
 
   render() {
 
-    // const roundsToRadio = lodash.map(this.state.rounds, (round) => {
-    //   return (
-    //     <div key={round} className="col-1">
-    //       <Label check>
-    //         <Input type="radio" name="round"/>{' '}
-    //         {round}
-    //       </Label>
-    //     </div>
-    //   )
-    // })
-
-    // const roundsOfInterest =
-    //   <FormGroup>
-    //     <legend>Rounds of interest</legend>
-    //     {roundsToRadio}
-    //   </FormGroup>
-
-
     return (
       <div className="container-fluid">
         <Form>
+
           <FormGroup>
-            <Label for="exampleEmail">Alias</Label>
+            <Label for="playerName">Alias</Label>
             <Input type="text" name="playerName" id="playerName" placeholder="What's your alias?" onChange={(e) => this.handleInput(e, "playerName")}/>
           </FormGroup>
+
           <FormGroup>
-            <Label for="examplePassword">Demo Url</Label>
+            <Label for="demoUrl">Demo Url</Label>
             <Input type="text" name="demoUrl" id="demoUrl" placeholder="Demo url" onChange={(e) => this.handleInput(e, "demoUrl")}/>
           </FormGroup>
+      
           <FormGroup>
-            <Label for="examplePassword">Rounds of interest</Label>
-            <Input type="text" name="roundsOfInterest" id="roundsOfInterest" placeholder="Rounds of interest?" onChange={(e) => this.handleInput(e, "roundsOfInterest")}/>
+            <Label for="roundsOfInterest">Rounds of interest</Label>
+            <Input type="select" name="roundsOfInterest" id="roundsOfInterest" multiple onChange={(e) => this.handleRoundsOfInterest(e)}>
+              {lodash.chain(lodash.range(1, 17)).map((i) => {
+                return (<option key={i}>{i}</option>)
+              }).value()}
+            </Input>
           </FormGroup>
+
           <FormGroup>
             <Label for="examplePassword">Rank</Label>
             <Input type="text" name="rank" id="rank" placeholder="Rank?" onChange={(e) => this.handleInput(e, "rank")}/>
@@ -81,14 +77,7 @@ class CreateDemo extends React.Component {
             <Label for="comments">Comments</Label>
             <Input type="textarea" name="text" id="comments" onChange={(e) => this.handleInput(e, "comments")}/>
           </FormGroup>
-          <FormGroup>
-            <Label for="exampleFile">File</Label>
-            <Input type="file" name="file" id="exampleFile" />
-            <FormText color="muted">
-              This is some placeholder block-level help text for the above input.
-              It's a bit lighter and easily wraps to a new line.
-            </FormText>
-          </FormGroup>
+          
           <Button onClick={this.handleSubmitDemoRequest}>Submit</Button>
         </Form>
       </div>
