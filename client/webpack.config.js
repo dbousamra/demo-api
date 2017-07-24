@@ -27,7 +27,10 @@ module.exports = {
   },
   plugins: [
     new AssetsPlugin(),
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: './public/indextemplate.html',
+      inject: 'body'
+    }),
     new HtmlWebpackIncludeAssetsPlugin({
       assets: [
         'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css',
